@@ -3,7 +3,6 @@ import React from 'react';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {DarkTheme, NavigationContainer} from '@react-navigation/native';
 import {enableScreens} from 'react-native-screens';
-import MainStack from './src/navigation/mainStack/MainStack';
 import {Provider} from 'react-redux';
 import Store from './src/redux';
 import OnboardingScreen from './src/screens/OnboardingScreen/OnboardingScreen';
@@ -16,7 +15,6 @@ export default function App() {
     <Provider store={Store}>
       <NavigationContainer theme={DarkTheme}>
         <GestureHandlerRootView style={{flex: 1}}>
-          {/* <MainStack /> */}
           {onboard ? (
             <OnboardingScreen setOnboard={setOnboard} />
           ) : (

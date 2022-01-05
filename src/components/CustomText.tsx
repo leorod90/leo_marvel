@@ -1,5 +1,6 @@
 import React from 'react';
 import {Text} from 'react-native';
+import Colors from '../constants/Colors';
 
 interface Props {
   bold?: boolean;
@@ -23,6 +24,7 @@ export default function CustomText({
       style={[
         {
           fontFamily: bold ? 'Roboto-Bold' : 'Roboto-Regular',
+          color: Colors.black,
         },
         style,
       ]}>

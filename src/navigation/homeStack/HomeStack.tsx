@@ -1,6 +1,11 @@
 import * as React from 'react';
 import {RouteProp} from '@react-navigation/native';
-import {StackNavigationProp, TransitionPresets} from '@react-navigation/stack';
+import {
+  CardStyleInterpolators,
+  StackNavigationProp,
+  TransitionPresets,
+  TransitionSpecs,
+} from '@react-navigation/stack';
 import {createSharedElementStackNavigator} from 'react-navigation-shared-element';
 import HomeScreen from '../../screens/HomeScreen/HomeScreen';
 import DetailsScreen from '../../screens/DetailsScreen/DetailsScreen';
@@ -23,19 +28,18 @@ export default function HomeStack() {
     <Stack.Navigator
       initialRouteName="HomeScreen"
       screenOptions={{
+        presentation: 'modal',
         headerShown: false,
-        // cardStyleInterpolator: forFade,
-        ...TransitionPresets.FadeFromBottomAndroid,
       }}>
       <Stack.Screen name="HomeScreen" component={HomeScreen} />
       <Stack.Screen
         name="DetailsScreen"
         component={DetailsScreen}
         sharedElements={(route, otherRoute, showing) => {
-          // if (showing) {
-          const {item} = route.params;
-          return [item.title];
-          // }
+          if (otherRoute.name === 'HomeScreen' && showing) {
+            const {item} = route.params;
+            return [item.title];
+          }
         }}
       />
     </Stack.Navigator>

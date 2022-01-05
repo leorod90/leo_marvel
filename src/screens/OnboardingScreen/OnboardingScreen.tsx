@@ -18,7 +18,6 @@ import Animated, {
 import SplashScreen from 'react-native-splash-screen';
 import Icon from 'react-native-vector-icons/Ionicons';
 import CustomText from '../../components/CustomText';
-import {MainStackNavProps} from '../../navigation/mainStack/MainStack';
 import Chibi from './Chibi';
 import {
   PanGestureHandler,

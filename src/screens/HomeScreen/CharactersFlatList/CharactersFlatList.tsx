@@ -1,4 +1,3 @@
-import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {StyleSheet, View, Image, Animated, Pressable} from 'react-native';
 import {SharedElement} from 'react-navigation-shared-element';
@@ -6,7 +5,7 @@ import CustomText from '../../../components/CustomText';
 import Colors from '../../../constants/Colors';
 import Styles from '../../../constants/Styles';
 import DelayAnimations from './DelayAnimations';
-
+import {useNavigation} from '@react-navigation/native';
 interface Props {
   charactersResult: any;
 }
@@ -110,6 +109,7 @@ const styles = StyleSheet.create({
   image: {
     height: '100%',
     width: '100%',
+    backgroundColor: Colors.gray,
     borderWidth: 3,
     borderColor: Colors.black,
     resizeMode: 'stretch',

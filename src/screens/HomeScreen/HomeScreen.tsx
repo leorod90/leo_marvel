@@ -1,11 +1,10 @@
 import axios from 'axios';
 import React, {useCallback, useState} from 'react';
-import {ImageBackground, StyleSheet} from 'react-native';
+import {ImageBackground} from 'react-native';
 import CustomHeader from '../../components/CustomHeader';
 import LottieError from '../../components/LottieError';
 import LottieLoading from '../../components/LottieLoading';
 import NoResults from '../../components/NoResults';
-import Styles from '../../constants/Styles';
 import api from '../../data/api';
 import AlphaFlatList from './AlphaFlatList';
 import CharactersFlatList from './CharactersFlatList/CharactersFlatList';
@@ -93,5 +92,3 @@ export default function HomeScreen() {
     </ImageBackground>
   );
 }
-
-const styles = StyleSheet.create({});

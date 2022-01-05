@@ -1,6 +1,9 @@
 import * as React from 'react';
 import {RouteProp} from '@react-navigation/native';
-import {StackNavigationProp, TransitionPresets} from '@react-navigation/stack';
+import {
+  CardStyleInterpolators,
+  StackNavigationProp,
+} from '@react-navigation/stack';
 import {createSharedElementStackNavigator} from 'react-navigation-shared-element';
 import ComicsScreen from '../../screens/ComicsScreen/ComicsScreen';
 import DetailsScreen from '../../screens/DetailsScreen/DetailsScreen';
@@ -24,18 +27,17 @@ export default function ComicStack() {
       initialRouteName="ComicsScreen"
       screenOptions={{
         headerShown: false,
-        // cardStyleInterpolator: forFade,
-        ...TransitionPresets.FadeFromBottomAndroid,
+        presentation: 'modal',
       }}>
       <Stack.Screen name="ComicsScreen" component={ComicsScreen} />
       <Stack.Screen
         name="DetailsScreen"
         component={DetailsScreen}
         sharedElements={(route, otherRoute, showing) => {
-          // if (showing) {
-          const {item} = route.params;
-          return [item.title];
-          // }
+          if (otherRoute.name === 'ComicsScreen' && showing) {
+            const {item} = route.params;
+            return [item.title];
+          }
         }}
       />
     </Stack.Navigator>

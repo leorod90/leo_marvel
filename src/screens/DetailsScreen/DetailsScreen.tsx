@@ -55,7 +55,11 @@ export default function DetailsScreen({
           />
         </View>
       </View>
-      <ScrollView style={styles.container} bounces={false}>
+      <ScrollView
+        keyboardShouldPersistTaps="handled"
+        style={styles.container}
+        bounces={false}
+        showsVerticalScrollIndicator={false}>
         <SharedElement id={title}>
           <Image
             source={{uri: image}}
